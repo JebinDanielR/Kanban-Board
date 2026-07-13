@@ -14,26 +14,31 @@ function App() {
     }
   ]);
 
-
   const columns = [
     { id: "todo", title: "To Do" },
     { id: "inprogress", title: "In Progress" },
-    { id: "done", title: "Done" }
-  ];
-
+    { id: "done", title: "Done" }];
 
   const addTask = (task) => {
-
     setTasks([
       ...tasks,
       task
-    ]);
+    ])}
 
-  };
+  const updateTask = (updatedTask)=>{
+    setTasks(
+      tasks.map(task =>
+        task.id === updatedTask.id
+        ? updatedTask
+        : task)
+    )}
 
+    const deleteTask = (id)=>{
+      setTasks(
+        tasks.filter(task => task.id !== id)
+    )}
 
-  return (
-    <>
+  return (<>
       <Header />
 
       <TaskForm 
@@ -41,9 +46,11 @@ function App() {
         columns={columns}
       />
 
-      <Board 
+      <Board
         tasks={tasks}
         columns={columns}
+        updateTask={updateTask}
+        deleteTask={deleteTask}
       />
     </>
   );
