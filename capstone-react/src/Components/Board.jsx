@@ -1,6 +1,6 @@
 import Column from "./Column.jsx";
 
-function Board({tasks, columns, updateTask, deleteTask}) {
+function Board({tasks, columns, updateTask, deleteTask, moveTask}) {
 
   return (
     <div className="board">
@@ -13,7 +13,8 @@ function Board({tasks, columns, updateTask, deleteTask}) {
                 task=>task.column===column.id)
             }
             updateTask={updateTask}
-            deleteTask={deleteTask}/>
+            deleteTask={deleteTask}
+            moveTask={moveTask} />
       ))}
 
     </div>

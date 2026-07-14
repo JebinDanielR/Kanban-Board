@@ -38,6 +38,29 @@ function App() {
         tasks.filter(task => task.id !== id)
     )}
 
+    const moveTask = (id, direction) => {
+
+  const order = ["todo", "inprogress", "done"];
+
+  setTasks(prevTasks =>
+    prevTasks.map(task => {
+
+      if (task.id !== id) {
+        return task;
+      }
+
+      const current = order.indexOf(task.column);
+      const nextIndex =direction === "next"? current + 1: current - 1;
+
+      return {
+        ...task,
+        column: order[nextIndex]
+      };
+    })
+  );
+
+};
+
   return (<>
       <Header />
 
@@ -51,6 +74,7 @@ function App() {
         columns={columns}
         updateTask={updateTask}
         deleteTask={deleteTask}
+        moveTask={moveTask}
       />
     </>
   );

@@ -1,6 +1,6 @@
 import Card from "./Card.jsx";
 
-function Column({column,tasks,updateTask,deleteTask}) {
+function Column({column,tasks,updateTask,deleteTask, moveTask}) {
 
   return (
     <div className="column">
@@ -14,6 +14,7 @@ function Column({column,tasks,updateTask,deleteTask}) {
                 task={task}
                 updateTask={updateTask}
                 deleteTask={deleteTask}
+                moveTask={moveTask}
             />
         ))
       }
