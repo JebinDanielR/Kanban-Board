@@ -1,4 +1,6 @@
 import { useState } from "react";
+import styles from "./TaskForm.module.css";
+
 
 function TaskForm({ addTask, columns }) {
 
@@ -42,13 +44,14 @@ function TaskForm({ addTask, columns }) {
 
   return (
 
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.form}>
 
       <input
         type="text"
         placeholder="Title"
         value={title}
         onChange={(e)=>setTitle(e.target.value)}
+        required
       />
 
 
@@ -56,12 +59,14 @@ function TaskForm({ addTask, columns }) {
         placeholder="Description"
         value={description}
         onChange={(e)=>setDescription(e.target.value)}
+        required
       />
 
 
       <select
         value={column}
         onChange={(e)=>setColumn(e.target.value)}
+        required
       >
 
         {

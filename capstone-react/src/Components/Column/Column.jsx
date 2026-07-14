@@ -1,9 +1,10 @@
-import Card from "./Card.jsx";
+import Card from "../Card/Card.jsx";
+import styles from "./Column.module.css";
 
 function Column({column,tasks,updateTask,deleteTask, moveTask}) {
 
   return (
-    <div className="column">
+    <div className={styles.column}>
 
       <h2>{column.title}</h2>
 

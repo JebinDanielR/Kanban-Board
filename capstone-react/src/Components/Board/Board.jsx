@@ -1,9 +1,10 @@
-import Column from "./Column.jsx";
+import Column from "../Column/Column.jsx";
+import styles from "./Board.module.css";
 
 function Board({tasks, columns, updateTask, deleteTask, moveTask}) {
 
   return (
-    <div className="board">
+    <div className={styles.board}>
 
       {columns.map(column => (
         <Column

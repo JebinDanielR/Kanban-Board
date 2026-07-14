@@ -1,41 +1,32 @@
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body {
+  width:100%;
+  min-height:100vh;
+}
+
 .app {
-  min-height: 100vh;
-  padding: 20px;
-  transition: background 0.3s, color 0.3s;
+  width:100%;
+  min-height:100vh;
+  padding:24px;
 }
 
-/* Light theme */
+
+/* Light */
+
 .app.light {
-  background: #f5f5f5;
-  color: #222;
+  background: #eef2f7;
+  color: #1e293b;
 }
 
-/* Dark theme */
+
+/* Dark */
+
 .app.dark {
-  background: #222;
-  color: white;
-}
-
-
-/* Card styles */
-.app.light .card {
-  background: white;
-  color: black;
-}
-
-
-.app.dark .card {
-  background: #333;
-  color: white;
-}
-
-
-/* Column styles */
-.app.light .column {
-  background: #e8e8e8;
-}
-
-
-.app.dark .column {
-  background: #2b2b2b;
+  background: #0b1220;
+  color: #e2e8f0;
 }

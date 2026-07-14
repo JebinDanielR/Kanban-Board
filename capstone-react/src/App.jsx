@@ -1,9 +1,9 @@
-import Header from "./Components/Header.jsx";
-import TaskForm from "./Components/TaskForm.jsx";
-import Board from "./Components/board.jsx"
+import Header from "./Components/Header/Header.jsx";
+import TaskForm from "./Components/TaskForm/TaskForm.jsx";
+import Board from "./Components/Board/Board.jsx"
 import { useTheme } from "./hooks/useTheme.js";
 import "./App.css";
-import { useLocalStorage } from "./hooks/useLocalStorage";
+import { useLocalStorage } from "./hooks/useLocalStorage.js";
 
 function App() {
   const { theme } = useTheme();

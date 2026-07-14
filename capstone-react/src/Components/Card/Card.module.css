@@ -1,0 +1,209 @@
+.card {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background:#fef3c7;
+  padding:16px;
+  margin-bottom:14px;
+  border-radius:14px;
+  border:1px solid #fde68a;
+  box-shadow:0 4px 12px rgba(15,23,42,0.08);
+  transition:0.2s;
+}
+
+.card:hover {
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(15,23,42,0.12);
+}
+
+.content {
+  flex:1;
+  min-width:0;
+}
+
+.card h3 {
+  font-size:16px;
+  margin-bottom:8px;
+  color:#0f172a;
+}
+
+.card p {
+  font-size:14px;
+  color:#64748b;
+  line-height:1.5;
+}
+
+/* Arrows */
+
+.leftArrow,
+.rightArrow {
+  flex-shrink:0;
+  width:28px;
+  height:45px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border:none;
+  background:transparent;
+  font-size:32px;
+  font-weight:300;
+  color:#64748b;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.leftArrow:hover,
+.rightArrow:hover {
+  color:#0f172a;
+  transform:scale(1.2);
+}
+
+.leftArrow:disabled,
+.rightArrow:disabled {
+  opacity:0.25;
+  cursor:not-allowed;
+}
+
+/* Normal actions */
+
+.actions {
+  display:flex;
+  gap:10px;
+  margin-top:14px;
+}
+
+.actions button {
+  padding:7px 14px;
+  border-radius:8px;
+  border:none;
+  background:#e2e8f0;
+  color:#334155;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.actions button:hover {
+  background:#cbd5e1;
+}
+
+/* Edit form */
+
+.editForm {
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  width:100%;
+}
+
+.editForm input,
+.editForm textarea {
+  width:100%;
+  padding:12px 14px;
+  border-radius:10px;
+  border:1px solid #cbd5e1;
+  background:#ffffff;
+  color:#1e293b;
+  font-family:inherit;
+  font-size:14px;
+  outline:none;
+  transition:0.2s;
+}
+
+.editForm input:focus,
+.editForm textarea:focus {
+  border-color:#7c3aed;
+  box-shadow:0 0 0 3px rgba(124,58,237,0.15);
+}
+
+.editForm textarea {
+  height:100px;
+  resize:none;
+}
+
+/* Edit buttons */
+
+.editActions {
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  margin-top:5px;
+}
+
+.editActions button {
+  padding:9px 18px;
+  border-radius:10px;
+  border:none;
+  font-size:14px;
+  font-weight:500;
+  cursor:pointer;
+}
+
+.editActions button:first-child {
+  background:#e2e8f0;
+  color:#334155;
+}
+
+.editActions button:first-child:hover {
+  background:#cbd5e1;
+}
+
+.editActions button:last-child {
+  background:#7c3aed;
+  color:white;
+}
+
+.editActions button:last-child:hover {
+  background:#6d28d9;
+}
+
+/* Dark mode */
+
+:global(.dark) .card {
+  background:#1e293b;
+  border-color:#334155;
+}
+
+:global(.dark) .card h3 {
+  color:#f8fafc;
+}
+
+:global(.dark) .card p {
+  color:#cbd5e1;
+}
+
+:global(.dark) .leftArrow,
+:global(.dark) .rightArrow {
+  color:#94a3b8;
+}
+
+:global(.dark) .leftArrow:hover,
+:global(.dark) .rightArrow:hover {
+  color:white;
+}
+
+:global(.dark) .actions button {
+  background:#334155;
+  color:#e2e8f0;
+}
+
+:global(.dark) .actions button:hover {
+  background:#475569;
+}
+
+:global(.dark) .editForm input,
+:global(.dark) .editForm textarea {
+  background:#334155;
+  color:#f8fafc;
+  border-color:#475569;
+}
+
+:global(.dark) .editForm input:focus,
+:global(.dark) .editForm textarea:focus {
+  border-color:#a78bfa;
+  box-shadow:0 0 0 3px rgba(167,139,250,0.15);
+}
+
+:global(.dark) .editActions button:first-child {
+  background:#475569;
+  color:#f8fafc;
+}
