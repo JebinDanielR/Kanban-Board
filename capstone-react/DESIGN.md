@@ -1,6 +1,4 @@
 # Component Tree
-
-```text
 App
 ├── Header
 ├── TaskForm
@@ -27,7 +25,6 @@ App
 
 # Data Flow
 
-```
           App (tasks state)
           /              \
      Header          TaskForm
@@ -40,12 +37,9 @@ App
       To Do     In Progress     Done
          │           │           │
        Card        Card         Card
-```
 
 # Task Workflow
 
-```
 +--------+      Move Task      +-------------+      Move Task      +------+
 | To Do  | ------------------> | In Progress | ------------------> | Done |
 +--------+                     +-------------+                     +------+
-```

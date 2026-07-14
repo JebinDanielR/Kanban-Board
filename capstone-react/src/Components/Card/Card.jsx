@@ -1,12 +1,7 @@
 import { useState } from "react";
 import styles from "./Card.module.css";
 
-function Card({
-  task,
-  updateTask,
-  deleteTask,
-  moveTask
-}) {
+function Card({task,updateTask,deleteTask,moveTask}) {
 
   const [editMode, setEditMode] = useState(false);
 
@@ -64,10 +59,9 @@ function Card({
 
             <div className={styles.editForm}>
 
-              <input
-                value={title} onChange={(e)=>setTitle(e.target.value)}/>
+              <input value={title} onChange={(e)=>setTitle(e.target.value)}/>
 
-              <textarea value={description}onChange={(e)=>setDescription(e.target.value)}/>
+              <textarea value={description} onChange={(e)=>setDescription(e.target.value)}/>
               
               {error && <p className={styles.error}>{error}</p>}
 

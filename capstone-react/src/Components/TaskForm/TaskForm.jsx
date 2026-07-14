@@ -15,13 +15,6 @@ function TaskForm({ addTask, columns }) {
 
     e.preventDefault();
 
-
-    if(title.trim() === "") {
-      setError("Title is required");
-      return;
-    }
-
-
     const newTask = {
       id: crypto.randomUUID(),
       title,
@@ -29,9 +22,7 @@ function TaskForm({ addTask, columns }) {
       column
     };
 
-
     addTask(newTask);
-
 
     // clear form
     setTitle("");
