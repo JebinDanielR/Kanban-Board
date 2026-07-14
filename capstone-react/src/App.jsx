@@ -1,18 +1,17 @@
-import { useState } from "react";
 import Header from "./Components/Header.jsx";
 import TaskForm from "./Components/TaskForm.jsx";
 import Board from "./Components/board.jsx"
+import { useTheme } from "./hooks/useTheme.js";
+import "./App.css";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 function App() {
+  const { theme } = useTheme();
 
-  const [tasks, setTasks] = useState([
-    {
-      id: crypto.randomUUID(),
-      title: "Create UI",
-      description: "Design Kanban layout",
-      column: "todo"
-    }
-  ]);
+  const [tasks, setTasks] = useLocalStorage(
+  "kanban-tasks",
+  []
+);
 
   const columns = [
     { id: "todo", title: "To Do" },
@@ -33,16 +32,16 @@ function App() {
         : task)
     )}
 
-    const deleteTask = (id)=>{
+  const deleteTask = (id)=>{
       setTasks(
         tasks.filter(task => task.id !== id)
     )}
 
-    const moveTask = (id, direction) => {
+  const moveTask = (id, direction) => {
 
-  const order = ["todo", "inprogress", "done"];
+    const order = ["todo", "inprogress", "done"];
 
-  setTasks(prevTasks =>
+    setTasks(prevTasks =>
     prevTasks.map(task => {
 
       if (task.id !== id) {
@@ -50,18 +49,21 @@ function App() {
       }
 
       const current = order.indexOf(task.column);
-      const nextIndex =direction === "next"? current + 1: current - 1;
+
+      const newIndex = direction === "next"? current + 1 : current - 1;
 
       return {
         ...task,
-        column: order[nextIndex]
+        column: order[newIndex]
       };
+
     })
   );
 
-};
+  };
 
   return (<>
+  <div className={`app ${theme}`}>
       <Header />
 
       <TaskForm 
@@ -76,6 +78,7 @@ function App() {
         deleteTask={deleteTask}
         moveTask={moveTask}
       />
+      </div>
     </>
   );
 }
