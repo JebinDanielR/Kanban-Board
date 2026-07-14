@@ -5,12 +5,18 @@ function Card({task,updateTask,deleteTask}) {
   const [isEditing, setIsEditing] = useState(false);
   const [title, setTitle] = useState(task.title);
   const [description, setDescription] = useState(task.description);
-  const handleSave = ()=>{
+  const handleSave = () => {
             updateTask({
-            ...task,
-            title,
-            description
+              ...task,
+              title,
+              description
             });
+            setIsEditing(false);
+        };
+
+  const handleCancel = () => {
+            setTitle(task.title);
+            setDescription(task.description);
             setIsEditing(false);
         };
 
@@ -18,31 +24,36 @@ function Card({task,updateTask,deleteTask}) {
     <div className="card">
 
       {
-        isEditing ? (
-          <form>
-            <input
-              type="text"
-              value={title}
-              onChange={(e)=>setTitle(e.target.value)}/>
+  isEditing ? (<>
+      <input
+        type="text"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
 
-            <textarea
-              value={description}
-              onChange={(e)=>setDescription(e.target.value)}/>
+      <textarea
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+      />
 
-            <button type="button">
-              Save
-            </button>
-          </form>
-          ) :(
-          <>
-            <h3>{task.title}</h3>
-            <p>{task.description}</p>
-            <button onClick={()=>setIsEditing(true)}>Edit</button>
-            <button onClick={handleSave}>Save</button>
-            <button onClick={()=>deleteTask(task.id)}>Delete</button>
-          </>
-        )
-      }
+      <button onClick={handleSave}>Save</button>
+      <button onClick={handleCancel}>Cancel</button>
+    </>
+
+  ) : (
+
+    <>
+      <h3>{task.title}</h3>
+
+      <p>{task.description}</p>
+
+      <button onClick={() => setIsEditing(true)}>Edit</button>
+
+      <button onClick={() => deleteTask(task.id)}>Delete</button>
+    </>
+
+  )
+}
 
     </div>
   );
