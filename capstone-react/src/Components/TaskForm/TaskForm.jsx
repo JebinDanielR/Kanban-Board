@@ -1,8 +1,11 @@
 import { useState } from "react";
 import styles from "./TaskForm.module.css";
+import { useTaskActions } from "../../hooks/useTaskactions";
 
 
-function TaskForm({ addTask, columns }) {
+function TaskForm() {
+
+  const { addTask, columns } = useTaskActions();
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");

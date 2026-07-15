@@ -1,7 +1,10 @@
 import Column from "../Column/Column.jsx";
 import styles from "./Board.module.css";
+import {useTaskActions} from "../../hooks/useTaskactions.js";
 
-function Board({tasks, columns, updateTask, deleteTask, moveTask}) {
+function Board() {
+
+  const {tasks,columns} = useTaskActions();
 
   return (
     <div className={styles.board}>
@@ -12,10 +15,7 @@ function Board({tasks, columns, updateTask, deleteTask, moveTask}) {
             column={column}
             tasks={tasks.filter(
                 task=>task.column===column.id)
-            }
-            updateTask={updateTask}
-            deleteTask={deleteTask}
-            moveTask={moveTask} />
+            }/>
       ))}
 
     </div>
